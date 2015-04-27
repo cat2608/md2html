@@ -1,6 +1,7 @@
 "use strict"
 
 C        = require "../common/constants"
+fs       = require "fs"
 Document = require "../common/models/document"
 
 module.exports = (server) ->
@@ -35,5 +36,6 @@ module.exports = (server) ->
       if error
         response.badRequest()
       else
+        fs.writeFile "#{__dirname}/../www/index.html", result.parse().text
         response.json html: result.parse()
 
