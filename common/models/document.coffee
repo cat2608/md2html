@@ -8,11 +8,12 @@ Document = new Schema
   text: type: String
 
 # -- Static methods ------------------------------------------------------------
-Document.static.register = (text) ->
+Document.statics.register = (text) ->
   promise = new Hope.Promise()
   document = db.model "Document", Document
-  new document(text).save (error, value) -> promise.done error, value
+  new document(text:text).save (error, value) -> promise.done error, value
   promise
+
 # -- Instance methods ----------------------------------------------------------
 
 exports = module.exports = db.model "Document", Document

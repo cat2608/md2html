@@ -26,4 +26,9 @@ module.exports = (server) ->
       text = text.replace C.MARKDOWN[key].REGEX, (value) ->
         value.trim().replace C.MARKDOWN[key].REGEX, C.MARKDOWN[key].HTML
 
-    response.ok()
+    Document.register(text).then (error, result) ->
+      if error
+        response.badRequest()
+      else
+        response.ok()
+
