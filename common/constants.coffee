@@ -1,8 +1,19 @@
 module.exports =
 
   MARKDOWN:
-    LINK    : /\[([^\]]+)\]\(([^)]+)\)/g
-    HEADING : /^ *(#{1,6}) *([^<\n]+?) *#* *(?:\n+|$)/
-    CODE    : /\`(.*?)\`/g
-    STRONG  : /\*\*([\s\S]+?)\*\*/
-    EMPHASIS: /\*([\s\S]+?)\*/
+
+    HEADING :
+      REGEX: /^ *(#{1,6}) *([^<\n]+?) *#* *(?:\n+|$)/
+      HTML : '<h1>$2</h1>'
+
+    LINK    :
+      REGEX: /\[([^\]]+)\]\(([^)]+)\)/g
+      HTML : '<a href="$1">$2</a>'
+
+    STRONG  :
+      REGEX: /\*\*([\s\S]+?)\*\*/
+      HTML : '<strong>$1</strong>'
+
+    EMPHASIS:
+      REGEX: /\*([\s\S]+?)\*/
+      HTML : '<em>$1</em>'
