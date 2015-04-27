@@ -15,5 +15,8 @@ Document.statics.register = (text) ->
   promise
 
 # -- Instance methods ----------------------------------------------------------
+Document.methods.parse = ->
+  id  : @_id
+  text: @text
 
 exports = module.exports = db.model "Document", Document

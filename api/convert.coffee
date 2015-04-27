@@ -30,5 +30,5 @@ module.exports = (server) ->
       if error
         response.badRequest()
       else
-        response.ok()
+        response.json html: result.parse()
 
