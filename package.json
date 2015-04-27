@@ -1,19 +1,14 @@
 {
   "name"        : "md2html",
   "version"     : "1.0.0",
-  "description" : "MD2HTML",
-  "author"      : "Catalina Oyaneder <catalina.oyaneder@gmail.com>",
   "homepage"    : "https://github.com/cat2608/md2html",
-  "repository": {
+  "description" : "Convert MD to HTML",
+  "author"      : "Catalina Oyaneder <catalina.oyaneder@gmail.com>",
+  "repository"  : {
     "type": "git",
     "url" : "https://github.com/cat2608/md2html.git"
   },
-  "bugs": {
-    "url": "https://github.com/cat2608/md2html/issues"
-  },
   "dependencies": {
-    "hapi"      : "^8.4.0",
-    "mongoose"  : "^4.0.2",
-    "underscore": "^1.8.3"
+    "zenserver": "^1.4.18"
   }
 }
