@@ -14,6 +14,15 @@ Document.statics.register = (text) ->
   new document(text:text).save (error, value) -> promise.done error, value
   promise
 
+Document.statics.search = (query, limit = 0) ->
+  promise = new Hope.Promise()
+  @find(query).limit(limit).exec (error, value) ->
+    if limit is 1 and not error
+      error = code: 402, message: "Document not found." if value.length is 0
+      value = value[0]
+    promise.done error, value
+  promise
+
 # -- Instance methods ----------------------------------------------------------
 Document.methods.parse = ->
   id  : @_id

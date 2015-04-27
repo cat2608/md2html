@@ -11,7 +11,12 @@ module.exports = (server) ->
    * @param
   ###
   server.get "/markdown/get", (request, response) ->
-    response.ok()
+    if request.required ["id"]
+      Document.search(_id: request.parameters.id, limit = 1).then (error, result) ->
+        if error
+          response.json message: error.message, error.code
+        else
+          response.json html: result.parse()
 
 
   ###
