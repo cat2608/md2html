@@ -1,6 +1,7 @@
 "use strict"
 
 Test = require("zenrequest").Test
+fs   = require "fs"
 id   = null
 
 module.exports = ->
@@ -11,18 +12,9 @@ module.exports = ->
 
 # PROMISES ---------------------------------------------------------------------
 _create = -> ->
-  document =
-    text:
-      """
-        # Title 1
-        More text
-        [Google](http://google.com)
-        Some text with *Emphasis* word
-        [Yahoo](http://yahoo.com)
-        Some **WORD** strong
-
-      """
-  message = "Sending MD to convert"
+  file = fs.readFileSync "#{__dirname}/../README.md", "utf8"
+  document = text: file
+  message  = "Sending MD to convert"
   Test "POST", "markdown/save", document, null, message, 200, (response) ->
     id = response.html.id
 
