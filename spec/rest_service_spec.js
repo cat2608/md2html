@@ -1,8 +1,10 @@
+var fs     = require('fs');
+var file   = fs.readFileSync(__dirname + "/../README.md", "utf8")
 var frisby = require('frisby');
 
 frisby.create('Transform and store markdown to DB')
   .post('http://127.0.0.1:8888/markdown/save', {
-    text: "# MD2HTML"
+    text: file
   }, {json: true})
   .expectHeaderContains('content-type', 'application/json')
   .expectStatus(200)
