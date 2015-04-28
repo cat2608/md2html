@@ -3,7 +3,7 @@ module.exports =
   MARKDOWN:
 
     HEADING :
-      REGEX: /^ *(#{1,6}) *([^<\n]+?) *#* *(?:\n+|$)/
+      REGEX: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/gm
       HTML : '<h1>$2</h1>'
 
     LINK    :
@@ -11,9 +11,9 @@ module.exports =
       HTML : '<a href="$1">$2</a>'
 
     STRONG  :
-      REGEX: /\*\*([\s\S]+?)\*\*/
+      REGEX: /\*\*([^*]+)\*\*/g
       HTML : '<strong>$1</strong>'
 
     EMPHASIS:
-      REGEX: /\*([\s\S]+?)\*/
+      REGEX: /\*([^*]+)\*/g
       HTML : '<em>$1</em>'
