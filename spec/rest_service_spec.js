@@ -16,7 +16,16 @@ frisby.create('Transform and store markdown to DB')
       .get('http://127.0.0.1:8888/markdown/get?id='+ id)
       .expectHeaderContains('content-type', 'application/json')
       .expectStatus(200)
-      .expectJSONTypes({ 'html': Object })
+      .expectJSONTypes({ 'html': Object})
+
+    .afterJSON(function (document) {
+    frisby.create('Resquest document without ID')
+      .get('http://127.0.0.1:8888/markdown/get')
+      .expectHeaderContains('content-type', 'application/json')
+      .expectStatus(400)
+      .expectJSONTypes({'message': 'id is required'})
     .toss();
+  })
+  .toss();
 })
 .toss();
