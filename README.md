@@ -10,3 +10,10 @@ Conver **MD** to **HTML**
 
 Structure *files* and *folders*
 
+### Installation
+
+From command line...
+
+#### Running
+
+From command line...

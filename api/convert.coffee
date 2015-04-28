@@ -28,6 +28,11 @@ module.exports = (server) ->
   server.post "/markdown/save", (request, response) ->
     text = request.parameters.text
 
+    text = text.replace C.MARKDOWN.HEADING.REGEX, (value) ->
+      for tag in value.trim().split(/\n/)
+        heading = tag.match(/#/g).length
+        value.replace C.MARKDOWN.HEADING.REGEX, "<h#{heading}>$2</h#{heading}>"
+
     for key, value of C.MARKDOWN
       text = text.replace C.MARKDOWN[key].REGEX, (value) ->
         value.trim().replace C.MARKDOWN[key].REGEX, C.MARKDOWN[key].HTML

@@ -4,7 +4,6 @@ module.exports =
 
     HEADING :
       REGEX: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/gm
-      HTML : '<h1>$2</h1>'
 
     LINK    :
       REGEX: /\[([^\]]+)\]\(([^)]+)\)/g
