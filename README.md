@@ -1,6 +1,6 @@
 # md2html
 
-Conver **MD** to **HTML**
+Playing with **MD** to **HTML**
 
 [repository](https://github.com/cat2608/md2html.git)
 
