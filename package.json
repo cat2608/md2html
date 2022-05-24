@@ -9,7 +9,7 @@
     "url" : "https://github.com/cat2608/md2html.git"
   },
   "dependencies": {
-    "frisby"   : "^0.8.5",
+    "frisby"   : "^2.0.0",
     "zenserver": "^1.4.18"
   }
 }
